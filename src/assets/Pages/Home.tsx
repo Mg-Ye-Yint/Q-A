@@ -1,10 +1,10 @@
 import { Box, Typography } from "@mui/material";
 import "./Home.css";
-import AudienceChooseCard from "./components/AudienceChooseCard";
-import HostChooseCard from "./components/HostChooseCard";
+import AudienceChooseCard from "../components/AudienceChooseCard";
+import HostChooseCard from "../components/HostChooseCard";
 import { useState } from "react";
-// import { useRole } from "../../../store/store";
-// import themeApp from "/Users/HP/OneDrive/Documents/GitHub/Q-A/utils/Theme";
+import { useNavigate } from "react-router-dom";
+import {themeApp} from "../../../utils/Theme";
 
 const Home = () => {
   // const chooseHost = useRole((state) => state.chooseHost);
@@ -13,6 +13,17 @@ const Home = () => {
 
   const [chooseHost, setChooseHost] = useState<"audience" | "host">("audience");
 
+  const navigate = useNavigate();
+
+  const gochoosenpage =()=>{
+    if(chooseHost === "audience"){
+      navigate("/audiencelogin")
+    }
+    else{
+      navigate("/hostlogin")
+    }
+  }
+
   return (
     <Box
       sx={{
@@ -20,19 +31,23 @@ const Home = () => {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
+        position: 'relative',
         width: "100%",
+        [themeApp.breakpoints.down("lg")]: {
+          width: "100%", height: "auto"
+      }
       }}
     >
       <Box
         sx={{
           display: "flex",
           flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
+          alignItems: "start",
+          justifyContent: "start",
           marginTop: "198px",
-          marginLeft: "16px",
-          marginRight: "16px",
+          paddingX: "16px",
           width: "100%",
+          position: "relative"
         }}
       >
         <Typography
@@ -40,17 +55,14 @@ const Home = () => {
         >
           Start With
         </Typography>
-
-        <AudienceChooseCard
-          chooseHost={chooseHost}
-          setChooseHost={setChooseHost}
-        />
+        <Box sx={{position: "relative", width: "100% "}}>
+        <AudienceChooseCard chooseHost={chooseHost} setChooseHost={setChooseHost}/>
         <HostChooseCard chooseHost={chooseHost} setChooseHost={setChooseHost} />
-
+        </Box>
         <Box
           sx={{
             display: "flex",
-            width: "398px",
+            width: "100%",
             height: "59px",
             bgcolor: "#1C1C1C",
             marginTop: "212px",
@@ -58,7 +70,9 @@ const Home = () => {
             alignItems: "center",
             justifyContent: "center",
             marginBottom: "60px",
+            position: "relative"
           }}
+          onClick={gochoosenpage}
         >
           <Typography sx={{ fontSize: "16px", color: "white" }}>
             Continue

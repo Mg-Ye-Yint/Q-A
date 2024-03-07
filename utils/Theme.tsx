@@ -1,19 +1,74 @@
 import { createTheme } from "@mui/material";
 
-const themeApp = createTheme({
-  palette: {
-    primary: {
-      main: "#F7F7F7",
-    },
-    secondary: {
-      main: "#f50057",
-    },
-  },
-  typography: {
-    // Define typography options here
-    fontFamily: "Roboto, sans-serif",
-  },
-  // Add more theme options as needed
-});
 
-export default themeApp;
+export const themeApp = createTheme({
+    typography: {
+        allVariants: {
+            fontFamily: "Noto Sans SC",
+            textTransform: "none",
+        },
+    },
+
+    components: {
+        MuiButton: {
+            styleOverrides: {
+                root: {
+                    border: "0px",
+                    "&:focus": {
+                        outline: "none",
+                    },
+                    "&:active": {
+                        boxShadow: "none",
+                    },
+                },
+            },
+        },
+
+        MuiCircularProgress: {
+            styleOverrides: {
+                root: {
+                    border: "0px",
+                    "&:focus": {
+                        outline: "none",
+                    },
+                    "&:active": {
+                        boxShadow: "none",
+                    },
+                },
+            },
+        },
+
+        MuiIconButton: {
+            styleOverrides: {
+                root: {
+                    border: "0px",
+                    "&:focus": {
+                        outline: "none",
+                    },
+                    "&:active": {
+                        boxShadow: "none",
+                    },
+                },
+            },
+        },
+    },
+
+    palette: {
+        primary: { main: "#8E51E2", dark: "#000000", contrastText: "#CCCCCC" },
+        secondary: { main: "#456086", dark: "#CCC1BE" },
+        action: { active: "#000" },
+        background: {
+            default: "#EEE6E2",
+        },
+    },
+
+    breakpoints: {
+        values: {
+            xs: 0,
+            sm: 600,
+            md: 900,
+            lg: 1200,
+            xl: 1536,
+        },
+    },
+});

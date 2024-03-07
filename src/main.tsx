@@ -2,18 +2,21 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import Home from "./assets/Pages/Home.tsx";
-import Test from "./assets/Pages/test.tsx";
+// import { RouterProvider, createBrowserRouter } from "react-router-dom";
+// import Home from "./assets/Pages/Home.tsx";
+// import { AudienceLogin } from "./assets/Pages/AudienceLogin.tsx";
+// import { HostLogin } from "./assets/Pages/HostLogin.tsx";
+// import { Questions } from "./assets/Pages/Questions.tsx";
 
-const router = createBrowserRouter([
-  { path: "/", element: <Home /> },
-  { path: "/test", element: <Test /> },
-]);
+// const router = createBrowserRouter([
+//   { path: "/", element: <Home /> },
+//   { path: "/audiencelogin", element: <AudienceLogin/> },
+//   { path: "/hostlogin", element: <HostLogin/>},
+//   { path: "/questions", element: <Questions/>}
+// ]);
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
+ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <App />
-    <RouterProvider router={router} />
-  </React.StrictMode>
+  </React.StrictMode>,
 );
