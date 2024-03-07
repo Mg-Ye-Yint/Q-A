@@ -1,0 +1,6 @@
+.question-box::placeholder{
+    position: absolute;
+    top: 20px; 
+    left: 16px;
+    font-size: 16px;
+}

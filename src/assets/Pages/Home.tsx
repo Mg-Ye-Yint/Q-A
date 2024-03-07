@@ -4,7 +4,7 @@ import AudienceChooseCard from "../components/AudienceChooseCard";
 import HostChooseCard from "../components/HostChooseCard";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {themeApp} from "../../../utils/Theme";
+import { themeApp } from "../../../utils/Theme";
 
 const Home = () => {
   // const chooseHost = useRole((state) => state.chooseHost);
@@ -15,14 +15,13 @@ const Home = () => {
 
   const navigate = useNavigate();
 
-  const gochoosenpage =()=>{
-    if(chooseHost === "audience"){
-      navigate("/audiencelogin")
+  const gochoosenpage = () => {
+    if (chooseHost === "audience") {
+      navigate("/audiencelogin");
+    } else {
+      navigate("/hostlogin");
     }
-    else{
-      navigate("/hostlogin")
-    }
-  }
+  };
 
   return (
     <Box
@@ -31,11 +30,13 @@ const Home = () => {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        position: 'relative',
-        width: "100%",
+        position: "relative",
+        height: "100vh",
+        width: "430px",
         [themeApp.breakpoints.down("lg")]: {
-          width: "100%", height: "auto"
-      }
+          width: "100%",
+          height: "auto",
+        },
       }}
     >
       <Box
@@ -45,9 +46,8 @@ const Home = () => {
           alignItems: "start",
           justifyContent: "start",
           marginTop: "198px",
-          paddingX: "16px",
-          width: "100%",
-          position: "relative"
+          width: "calc(100% - 32px)",
+          position: "relative",
         }}
       >
         <Typography
@@ -55,9 +55,15 @@ const Home = () => {
         >
           Start With
         </Typography>
-        <Box sx={{position: "relative", width: "100% "}}>
-        <AudienceChooseCard chooseHost={chooseHost} setChooseHost={setChooseHost}/>
-        <HostChooseCard chooseHost={chooseHost} setChooseHost={setChooseHost} />
+        <Box sx={{ position: "relative", width: "100%" }}>
+          <AudienceChooseCard
+            chooseHost={chooseHost}
+            setChooseHost={setChooseHost}
+          />
+          <HostChooseCard
+            chooseHost={chooseHost}
+            setChooseHost={setChooseHost}
+          />
         </Box>
         <Box
           sx={{
@@ -70,7 +76,7 @@ const Home = () => {
             alignItems: "center",
             justifyContent: "center",
             marginBottom: "60px",
-            position: "relative"
+            position: "relative",
           }}
           onClick={gochoosenpage}
         >
